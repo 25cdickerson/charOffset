@@ -10,13 +10,27 @@
 using namespace std;
 
 char character(char start, int offset) {
-	start = start + offset;
-	return start;
+	// Have an error in my try catch block
+	try {
+		start = start + offset;
+
+		if (!isalpha(start + offset)) {
+			throw "Invaild Range Exception";
+		}
+		else if (!isalpha(start)) {
+			throw "Invalid Character Exception";
+		}
+		
+		return start;
+	}
+	catch (string s) {
+		cout << "ERROR:" << s;
+	}
 }
 
 int main()
 {
-	cout << character('a', 2);
+	cout << character('a', -1);
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
